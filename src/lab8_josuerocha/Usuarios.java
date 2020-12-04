@@ -1,11 +1,13 @@
  
 package lab8_josuerocha;
 
+import java.io.Serializable;
+
 /**
  *
  * @author josue
  */
-public class Usuarios {
+public class Usuarios implements Serializable{
     
     private String nombre;
     private String apellido;
@@ -48,6 +50,14 @@ public class Usuarios {
         this.apellido = apellido;
     }
 
+    public String getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
+    }
+
     public String getPassword() {
         return password;
     }
@@ -66,7 +76,7 @@ public class Usuarios {
 
     @Override
     public String toString() {
-        return nombre +" " + apellido+"\n usuario: "+usuario+",contrasena: "+password+"\n Nota final:"+nota;
+        return nombre +" " + apellido+"\n usuario: "+usuario+", contraseña: "+password+"\n Nota final: "+nota;
     }
     
     

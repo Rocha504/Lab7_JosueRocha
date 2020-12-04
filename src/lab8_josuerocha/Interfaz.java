@@ -5,6 +5,8 @@
  */
 package lab8_josuerocha;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author josue
@@ -33,11 +35,11 @@ public class Interfaz extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 625, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGap(0, 440, Short.MAX_VALUE)
         );
 
         pack();
@@ -81,10 +83,8 @@ public class Interfaz extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
     SuperUsuario inge=new SuperUsuario("Carlos","Vallejo","ca.vallejo","compi123");
+    ArrayList<Usuarios> usuarios=new ArrayList();
     
-   
-
-
 
 }
 
