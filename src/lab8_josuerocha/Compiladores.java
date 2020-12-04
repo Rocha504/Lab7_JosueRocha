@@ -2,6 +2,7 @@
 package lab8_josuerocha;
 
 import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -12,19 +13,19 @@ public class Compiladores {
     private String nombre;
     private String creador;
     private int AnalisisLexico;
+    private DefaultTableModel tabla1;
+    private DefaultTableModel tabla2;
     private int AnalisisSintactico;
     private int AnalisisSemantico;
     private int GeneracionDeCodigoIntermedio;
     private int OptimizadorDeCodigo;
     private int GeneradorDeCodigo;
-    private JTable variable;
-    private JTable errores;
     private int lineas=AnalisisLexico+AnalisisSintactico+AnalisisSemantico+GeneracionDeCodigoIntermedio+GeneracionDeCodigoIntermedio+OptimizadorDeCodigo+GeneradorDeCodigo;
 
     public Compiladores() {
     }
 
-    public Compiladores(String nombre, String creador, int AnalisisLexico, int AnalisisSintactico, int AnalisisSemantico, int GeneracionDeCodigoIntermedio, int OptimizadorDeCodigo, int GeneradorDeCodigo, JTable variable, JTable errores) {
+    public Compiladores(String nombre, String creador, int AnalisisLexico, int AnalisisSintactico, int AnalisisSemantico, int GeneracionDeCodigoIntermedio, int OptimizadorDeCodigo, int GeneradorDeCodigo, DefaultTableModel tabla1, DefaultTableModel tabla2) {
         this.nombre = nombre;
         this.creador = creador;
         this.AnalisisLexico = AnalisisLexico;
@@ -33,9 +34,13 @@ public class Compiladores {
         this.GeneracionDeCodigoIntermedio = GeneracionDeCodigoIntermedio;
         this.OptimizadorDeCodigo = OptimizadorDeCodigo;
         this.GeneradorDeCodigo = GeneradorDeCodigo;
-        this.variable = variable;
-        this.errores = errores;
+        this.tabla1 = tabla1;
+        this.tabla2 = tabla2;
     }
+    
+    
+
+     
 
     public String getNombre() {
         return nombre;
@@ -101,20 +106,20 @@ public class Compiladores {
         this.GeneradorDeCodigo = GeneradorDeCodigo;
     }
 
-    public JTable getVariable() {
-        return variable;
+    public DefaultTableModel getTabla1() {
+        return tabla1;
     }
 
-    public void setVariable(JTable variable) {
-        this.variable = variable;
+    public void setTabla1(DefaultTableModel tabla1) {
+        this.tabla1 = tabla1;
     }
 
-    public JTable getErrores() {
-        return errores;
+    public DefaultTableModel getTabla2() {
+        return tabla2;
     }
 
-    public void setErrores(JTable errores) {
-        this.errores = errores;
+    public void setTabla2(DefaultTableModel tabla2) {
+        this.tabla2 = tabla2;
     }
 
     public int getLineas() {
