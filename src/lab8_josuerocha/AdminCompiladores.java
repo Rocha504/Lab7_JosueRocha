@@ -17,6 +17,11 @@ public class AdminCompiladores {
     
      private ArrayList<Compiladores> listaCompiladores = new ArrayList();
     private File archivo = null;
+
+    public AdminCompiladores() {
+    }
+    
+    
     
     public AdminCompiladores(String path) {
         archivo = new File(path);
@@ -38,7 +43,7 @@ public class AdminCompiladores {
         this.archivo = archivo;
     }
     
-     public void setUsuario(Compiladores p) {
+     public void setCompilador(Compiladores p) {
         this.listaCompiladores.add(p);
     }
 
