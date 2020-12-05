@@ -529,6 +529,11 @@ public class Interfaz extends javax.swing.JFrame {
         Compiladores newcompi=new Compiladores(namefield_comp.getText(),creatorfield.getText(),lexico,sintactico,semantico,generador,optimizador,generador2,modelo1,modelo2);
         modelo.addElement(newcompi);
         compibox.setModel(modelo);
+        this.lexico.setText("");
+        namefield_comp.setText("");
+        creatorfield.setText("");
+        this.semantico.setText("");
+        
         ac.cargarArchivo();
         ac.setCompilador(newcompi);
         ac.escribirArchivo();
