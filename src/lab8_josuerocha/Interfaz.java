@@ -6,6 +6,7 @@
 package lab8_josuerocha;
 
 import java.util.ArrayList;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -20,6 +21,7 @@ public class Interfaz extends javax.swing.JFrame {
      */
     public Interfaz() {
         initComponents();
+        
     }
 
     /**
@@ -31,6 +33,10 @@ public class Interfaz extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        IngeFrame = new javax.swing.JFrame();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        compibox = new javax.swing.JComboBox<>();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         loginbutton = new javax.swing.JButton();
@@ -73,6 +79,38 @@ public class Interfaz extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         tabla2 = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
+
+        jLabel18.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel18.setText("BIENVENIDO INGENIERO");
+
+        jLabel19.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel19.setText("PUEDE ELEJIR LOS COMPILADORES AQUI");
+
+        compibox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "" }));
+
+        javax.swing.GroupLayout IngeFrameLayout = new javax.swing.GroupLayout(IngeFrame.getContentPane());
+        IngeFrame.getContentPane().setLayout(IngeFrameLayout);
+        IngeFrameLayout.setHorizontalGroup(
+            IngeFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(IngeFrameLayout.createSequentialGroup()
+                .addGap(69, 69, 69)
+                .addGroup(IngeFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jLabel19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel18)
+                    .addComponent(compibox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(358, Short.MAX_VALUE))
+        );
+        IngeFrameLayout.setVerticalGroup(
+            IngeFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(IngeFrameLayout.createSequentialGroup()
+                .addGap(68, 68, 68)
+                .addComponent(jLabel18)
+                .addGap(64, 64, 64)
+                .addComponent(jLabel19)
+                .addGap(18, 18, 18)
+                .addComponent(compibox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(268, Short.MAX_VALUE))
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -474,8 +512,10 @@ public class Interfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_loginbuttonActionPerformed
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+
         AdminCompiladores ac=new AdminCompiladores("./compiladores.lpqtpl");
-        
+        DefaultComboBoxModel modelo=(DefaultComboBoxModel) compibox.getModel();
+
         int lexico=Integer.parseInt(this.lexico.getText());
         int sintactico=Integer.parseInt(this.sintactico.getText());
         int semantico=Integer.parseInt(this.semantico.getText());
@@ -487,11 +527,13 @@ public class Interfaz extends javax.swing.JFrame {
         DefaultTableModel modelo2=(DefaultTableModel)tabla2.getModel();
         
         Compiladores newcompi=new Compiladores(namefield_comp.getText(),creatorfield.getText(),lexico,sintactico,semantico,generador,optimizador,generador2,modelo1,modelo2);
-        
+        modelo.addElement(newcompi);
+        compibox.setModel(modelo);
         ac.cargarArchivo();
         ac.setCompilador(newcompi);
         ac.escribirArchivo();
         
+        JOptionPane.showMessageDialog(this,"CREASTE UN COMPILADOR!!!!!!");
         
     }//GEN-LAST:event_jButton1MouseClicked
 
@@ -531,7 +573,9 @@ public class Interfaz extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JFrame IngeFrame;
     private javax.swing.JTextField apellidofield;
+    private javax.swing.JComboBox<String> compibox;
     private javax.swing.JTextField creatorfield;
     private javax.swing.JTextField generador;
     private javax.swing.JTextField generador2;
@@ -545,6 +589,8 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
