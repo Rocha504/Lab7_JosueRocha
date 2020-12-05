@@ -455,16 +455,16 @@ public class Interfaz extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(88, 88, 88)
+                .addGap(59, 59, 59)
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addContainerGap(85, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(56, 56, 56)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(38, Short.MAX_VALUE)
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 544, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(351, Short.MAX_VALUE))
+                .addGap(29, 29, 29))
         );
 
         pack();
@@ -501,6 +501,7 @@ public class Interfaz extends javax.swing.JFrame {
             }
             else{
                if(loginfield1.getText().equals(inge.getUsuario()) && loginfield2.getText().equals(inge.getPassword())){
+                   showIFrame();
                    
             }
         }
@@ -516,17 +517,17 @@ public class Interfaz extends javax.swing.JFrame {
         AdminCompiladores ac=new AdminCompiladores("./compiladores.lpqtpl");
         DefaultComboBoxModel modelo=(DefaultComboBoxModel) compibox.getModel();
 
-        int lexico=Integer.parseInt(this.lexico.getText());
+        int lexio=Integer.parseInt(this.lexico.getText());
         int sintactico=Integer.parseInt(this.sintactico.getText());
         int semantico=Integer.parseInt(this.semantico.getText());
         int generador=Integer.parseInt(this.generador.getText());
         int optimizador=Integer.parseInt(this.optimizador.getText());
         int generador2=Integer.parseInt(this.generador2.getText());
-        int lineasC=lexico+sintactico+semantico+generador+optimizador+generador2;
+        int lineasC=lexio+sintactico+semantico+generador+optimizador+generador2;
         DefaultTableModel modelo1=(DefaultTableModel)tabla1.getModel();
         DefaultTableModel modelo2=(DefaultTableModel)tabla2.getModel();
         
-        Compiladores newcompi=new Compiladores(namefield_comp.getText(),creatorfield.getText(),lexico,sintactico,semantico,generador,optimizador,generador2,modelo1,modelo2);
+        Compiladores newcompi=new Compiladores(namefield_comp.getText(),creatorfield.getText(),lexio,sintactico,semantico,generador,optimizador,generador2,modelo1,modelo2);
         modelo.addElement(newcompi);
         compibox.setModel(modelo);
         this.lexico.setText("");
@@ -631,6 +632,11 @@ public class Interfaz extends javax.swing.JFrame {
     SuperUsuario inge=new SuperUsuario("Carlos","Vallejo","ca.vallejo","compi123");
     ArrayList<Usuarios> usuarios=new ArrayList();
     
+    public void showIFrame(){
+    IngeFrame.pack();
+    IngeFrame.setLocationRelativeTo(this);
+    IngeFrame.setVisible(true);
+}
 
 }
 
