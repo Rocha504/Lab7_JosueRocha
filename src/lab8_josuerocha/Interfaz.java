@@ -6,6 +6,7 @@
 package lab8_josuerocha;
 
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -31,10 +32,10 @@ public class Interfaz extends javax.swing.JFrame {
 
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        loginbutton = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField1 = new javax.swing.JTextField();
+        loginfield1 = new javax.swing.JTextField();
+        loginfield2 = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
@@ -47,26 +48,31 @@ public class Interfaz extends javax.swing.JFrame {
         userfield = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         passwordfield = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
+        saveuser = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton1.setText("INGRESAR");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        loginbutton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        loginbutton.setText("INGRESAR");
+        loginbutton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                loginbuttonMouseClicked(evt);
+            }
+        });
+        loginbutton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                loginbuttonActionPerformed(evt);
             }
         });
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel2.setText("USUARIO");
 
-        jTextField2.setText(" ");
+        loginfield1.setText(" ");
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        loginfield2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                loginfield2ActionPerformed(evt);
             }
         });
 
@@ -91,9 +97,9 @@ public class Interfaz extends javax.swing.JFrame {
                         .addComponent(jLabel3)
                         .addGap(18, 18, 18)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextField1)
-                    .addComponent(jTextField2)
-                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 124, Short.MAX_VALUE))
+                    .addComponent(loginfield2)
+                    .addComponent(loginfield1)
+                    .addComponent(loginbutton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 124, Short.MAX_VALUE))
                 .addGap(257, 257, 257))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(236, 236, 236)
@@ -107,14 +113,14 @@ public class Interfaz extends javax.swing.JFrame {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(67, 67, 67)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(loginfield1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
                 .addGap(40, 40, 40)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(loginfield2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
                 .addGap(51, 51, 51)
-                .addComponent(jButton1)
+                .addComponent(loginbutton)
                 .addContainerGap(134, Short.MAX_VALUE))
         );
 
@@ -143,7 +149,12 @@ public class Interfaz extends javax.swing.JFrame {
 
         passwordfield.setText(" ");
 
-        jButton2.setText("CREAR");
+        saveuser.setText("CREAR");
+        saveuser.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                saveuserMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -169,7 +180,7 @@ public class Interfaz extends javax.swing.JFrame {
                             .addComponent(passwordfield, javax.swing.GroupLayout.DEFAULT_SIZE, 157, Short.MAX_VALUE)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(270, 270, 270)
-                        .addComponent(jButton2)))
+                        .addComponent(saveuser)))
                 .addContainerGap(199, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -194,7 +205,7 @@ public class Interfaz extends javax.swing.JFrame {
                     .addComponent(jLabel8)
                     .addComponent(passwordfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(35, 35, 35)
-                .addComponent(jButton2)
+                .addComponent(saveuser)
                 .addContainerGap(87, Short.MAX_VALUE))
         );
 
@@ -220,13 +231,45 @@ public class Interfaz extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void loginfield2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginfield2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_loginfield2ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void saveuserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_saveuserMouseClicked
+        
+        Usuarios s=new Usuarios(namefield.getText(),apellidofield.getText(),userfield.getText(),passwordfield.getText());
+        
+        AdminUsuarios ad=new AdminUsuarios("./usuarios.lpqtpl");
+        ad.cargarArchivo();
+        ad.setUsuario(s);
+        ad.escribirArchivo();
+        JOptionPane.showMessageDialog(this,"Usuario creado correctamente\n la informacion ha sido guardada en el archivo binario.");
+        namefield.setText("");
+        apellidofield.setText("");
+        userfield.setText("");
+        passwordfield.setText("");  
+        
+    }//GEN-LAST:event_saveuserMouseClicked
+
+    private void loginbuttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginbuttonMouseClicked
+        AdminUsuarios ad=new AdminUsuarios("./usuarios.lpqtpl");
+        ad.cargarArchivo();
+        ArrayList<Usuarios> usuarios=ad.getListaUsuarios();
+        for(Usuarios t: usuarios){
+            if(loginfield1.getText().equals(t.getUsuario()) && loginfield2.getText().equals(t.getPassword())){
+                int NotaF=t.getNota();
+                JOptionPane.showMessageDialog(this,"Su nota Final es de:");
+            }
+            else{
+               
+            }
+        }
+        
+    }//GEN-LAST:event_loginbuttonMouseClicked
+
+    private void loginbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginbuttonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_loginbuttonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -265,8 +308,6 @@ public class Interfaz extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField apellidofield;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -278,10 +319,12 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JButton loginbutton;
+    private javax.swing.JTextField loginfield1;
+    private javax.swing.JTextField loginfield2;
     private javax.swing.JTextField namefield;
     private javax.swing.JTextField passwordfield;
+    private javax.swing.JButton saveuser;
     private javax.swing.JTextField userfield;
     // End of variables declaration//GEN-END:variables
     SuperUsuario inge=new SuperUsuario("Carlos","Vallejo","ca.vallejo","compi123");
