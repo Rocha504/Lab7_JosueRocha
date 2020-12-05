@@ -533,6 +533,9 @@ public class Interfaz extends javax.swing.JFrame {
         namefield_comp.setText("");
         creatorfield.setText("");
         this.semantico.setText("");
+        this.generador.setText("");
+        this.generador2.setText("");
+        this.optimizador.setText("");
         
         ac.cargarArchivo();
         ac.setCompilador(newcompi);
